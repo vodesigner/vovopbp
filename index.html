@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Universal AI Prompt Builder Pro
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ===================================================== -->
+    <!-- HEADER -->
+    <!-- ===================================================== -->
+
+    <header class="header">
+
+        <div class="logoArea">
+
+            <h1>
+                Universal AI Prompt Builder Pro
+            </h1>
+
+            <p>
+                Professional Prompt Generator for Runway · Veo · Kling · Flow · Midjourney
+            </p>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ===================================================== -->
+    <!-- MAIN -->
+    <!-- ===================================================== -->
+
+    <main class="mainLayout">
+
+
+
+
+        <!-- ===================================================== -->
+        <!-- LEFT PANEL -->
+        <!-- ===================================================== -->
+
+        <section class="leftPanel">
+
+
+
+            <!-- ===================================================== -->
+            <!-- PROJECT -->
+            <!-- ===================================================== -->
+
+            <div class="card">
+
+                <h2>
+                    📁 Project
+                </h2>
+
+                <label>
+
+                    Project Name
+
+                    <input
+                        type="text"
+                        id="projectName"
+                        name="projectName"
+                        placeholder="Coffee Advertisement">
+
+                </label>
+
+
+
+                <label>
+
+                    AI Engine
+
+                    <select
+                        id="aiType"
+                        name="aiType">
+
+                        <option value="runway">Runway</option>
+
+                        <option value="veo">Google Veo</option>
+
+                        <option value="kling">Kling AI</option>
+
+                        <option value="flow">Flow AI</option>
+
+                        <option value="midjourney">Midjourney</option>
+
+                    </select>
+
+                </label>
+
+
+
+                <div class="twoColumn">
+
+                    <label>
+
+                        Aspect Ratio
+
+                        <select
+                            id="aspectRatio"
+                            name="aspectRatio">
+
+                            <option>9:16</option>
+
+                            <option>16:9</option>
+
+                            <option>1:1</option>
+
+                            <option>4:5</option>
+
+                            <option>21:9</option>
+
+                        </select>
+
+                    </label>
+
+
+
+                    <label>
+
+                        FPS
+
+                        <select
+                            id="fps"
+                            name="fps">
+
+                            <option>24</option>
+
+                            <option>30</option>
+
+                            <option>60</option>
+
+                        </select>
+
+                    </label>
+
+                </div>
+
+
+
+                <div class="twoColumn">
+
+                    <label>
+
+                        Resolution
+
+                        <select
+                            id="resolution"
+                            name="resolution">
+
+                            <option>4K</option>
+
+                            <option>2K</option>
+
+                            <option>1080P</option>
+
+                            <option>720P</option>
+
+                        </select>
+
+                    </label>
+
+
+
+                    <label>
+
+                        Duration
+
+                        <input
+                            type="number"
+                            id="videoDuration"
+                            name="videoDuration"
+                            value="5"
+                            min="1">
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+
+
+            <!-- ===================================================== -->
+            <!-- SCENE -->
+            <!-- ===================================================== -->
+
+            <div class="card">
+
+                <h2>
+                    🎬 Scene
+                </h2>
+
+                <div class="twoColumn">
+
+                    <label>
+
+                        Scene Number
+
+                        <input
+                            type="number"
+                            id="sceneNumber"
+                            name="sceneNumber"
+                            value="1">
+
+                    </label>
+
+                    <label>
+
+                        Scene Duration
+
+                        <input
+                            type="number"
+                            id="sceneDuration"
+                            name="sceneDuration"
+                            value="5">
+
+                    </label>
+
+                </div>
+
+
+
+                <label>
+
+                    Location
+
+                    <input
+                        type="text"
+                        id="location"
+                        name="location">
+
+                </label>
+
+
+
+                <label>
+
+                    Location Description
+
+                    <textarea
+                        id="locationDescription"
+                        name="locationDescription"
+                        rows="5"></textarea>
+
+                </label>
+
+
+
+                <div class="twoColumn">
+
+                    <label>
+
+                        Time
+
+                        <select
+                            id="time"
+                            name="time">
+
+                            <option>Sunrise</option>
+
+                            <option>Morning</option>
+
+                            <option>Noon</option>
+
+                            <option>Afternoon</option>
+
+                            <option>Golden Hour</option>
+
+                            <option>Blue Hour</option>
+
+                            <option>Night</option>
+
+                            <option>Midnight</option>
+
+                        </select>
+
+                    </label>
+
+
+
+                    <label>
+
+                        Weather
+
+                        <select
+                            id="weather"
+                            name="weather">
+
+                            <option>Sunny</option>
+
+                            <option>Cloudy</option>
+
+                            <option>Rain</option>
+
+                            <option>Snow</option>
+
+                            <option>Fog</option>
+
+                            <option>Storm</option>
+
+                        </select>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+
+
+            <!-- ===================================================== -->
+            <!-- SUBJECT -->
+            <!-- ===================================================== -->
+
+            <div class="card">
+
+                <h2>
+                    🧍 Subject
+                </h2>
+
+                <div class="twoColumn">
+
+                    <label>
+
+                        Gender
+
+                        <select
+                            id="gender"
+                            name="gender">
+
+                            <option>Male</option>
+
+                            <option>Female</option>
+
+                        </select>
+
+                    </label>
+
+                    <label>
+
+                        Age
+
+                        <input
+                            type="number"
+                            id="age"
+                            name="age"
+                            value="25">
+
+                    </label>
+
+                </div>
+
+                <label>
+
+                    Nationality
+
+                    <input
+                        type="text"
+                        id="nationality"
+                        name="nationality">
+
+                </label>
+
+                <label>
+
+                    Job
+
+                    <input
+                        type="text"
+                        id="job"
+                        name="job">
+
+                </label>
+
+                <label>
+
+                    Appearance
+
+                    <textarea
+                        id="appearance"
+                        name="appearance"
+                        rows="5"></textarea>
+
+                </label>
+
+                <label>
+
+                    Outfit
+
+                    <textarea
+                        id="outfit"
+                        name="outfit"
+                        rows="4"></textarea>
+
+                </label>
+
+                <label>
+
+                    Hair Style
+
+                    <textarea
+                        id="hairStyle"
+                        name="hairStyle"
+                        rows="3"></textarea>
+
+                </label>
+
+                <label>
+
+                    Accessory
+
+                    <textarea
+                        id="accessory"
+                        name="accessory"
+                        rows="3"></textarea>
+
+                </label>
+
+                <label>
+
+                    Shoes
+
+                    <textarea
+                        id="shoes"
+                        name="shoes"
+                        rows="3"></textarea>
+
+                </label>
+
+                <label>
+
+                    Action
+
+                    <textarea
+                        id="action"
+                        name="action"
+                        rows="4"></textarea>
+
+                </label>
+
+                <label>
+
+                    Expression
+
+                    <textarea
+                        id="expression"
+                        name="expression"
+                        rows="4"></textarea>
+
+                </label>
+
+            </div>
+
+            <!-- ===================================================== -->
+            <!-- CAMERA -->
+            <!-- ===================================================== -->
+
+            <div class="card">
+
+                <h2>
+                    📷 Camera
+                </h2>
+
+                <div class="twoColumn">
+
+                    <label>
+
+                        Camera Shot
+
+                        <select
+                            id="cameraShot"
+                            name="cameraShot">
+
+                            <option>Extreme Wide Shot</option>
+                            <option>Wide Shot</option>
+                            <option>Full Shot</option>
+                            <option>Medium Full Shot</option>
+                            <option selected>Medium Shot</option>
+                            <option>Medium Close Up</option>
+                            <option>Close Up</option>
+                            <option>Extreme Close Up</option>
+                            <option>Insert Shot</option>
+                            <option>Over Shoulder</option>
+                            <option>POV</option>
+                            <option>Drone Shot</option>
+
+                        </select>
+
+                    </label>
+
+
+
+                    <label>
+
+                        Camera Angle
+
+                        <select
+                            id="cameraAngle"
+                            name="cameraAngle">
+
+                            <option>Eye Level</option>
+                            <option>Low Angle</option>
+                            <option>High Angle</option>
+                            <option>Bird Eye View</option>
+                            <option>Worm Eye View</option>
+                            <option>Dutch Angle</option>
+                            <option>Top Down</option>
+                            <option>Bottom Up</option>
+
+                        </select>
+
+                    </label>
+
+                </div>
+
+
+
+                <label>
+
+                    Camera Movement
+
+                    <select
+                        id="cameraMovement"
+                        name="cameraMovement">
+
+                        <option>Static</option>
+                        <option>Pan Left</option>
+                        <option>Pan Right</option>
+                        <option>Tilt Up</option>
+                        <option>Tilt Down</option>
+                        <option>Dolly In</option>
+                        <option>Dolly Out</option>
+                        <option>Truck Left</option>
+                        <option>Truck Right</option>
+                        <option>Pedestal Up</option>
+                        <option>Pedestal Down</option>
+                        <option>Orbit Left</option>
+                        <option>Orbit Right</option>
+                        <option>Push In</option>
+                        <option>Pull Out</option>
+                        <option>Crane Up</option>
+                        <option>Crane Down</option>
+                        <option>Handheld</option>
+                        <option>Steadicam</option>
+                        <option>Gimbal</option>
+                        <option>FPV Drone</option>
+
+                    </select>
+
+                </label>
+
+
+
+                <div class="twoColumn">
+
+                    <label>
+
+                        Lens
+
+                        <select
+                            id="lens"
+                            name="lens">
+
+                            <option>14mm</option>
+                            <option>24mm</option>
+                            <option>35mm</option>
+                            <option selected>50mm</option>
+                            <option>85mm</option>
+                            <option>135mm</option>
+                            <option>200mm</option>
+
+                        </select>
+
+                    </label>
+
+
+
+                    <label>
+
+                        Focus
+
+                        <select
+                            id="focus"
+                            name="focus">
+
+                            <option>Sharp Focus</option>
+                            <option>Shallow Depth of Field</option>
+                            <option>Rack Focus</option>
+                            <option>Deep Focus</option>
+                            <option>Soft Focus</option>
+
+                        </select>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+
+
+            <!-- ===================================================== -->
+            <!-- LIGHTING -->
+            <!-- ===================================================== -->
+
+            <div class="card">
+
+                <h2>
+                    💡 Lighting
+                </h2>
+
+                <label>
+
+                    Lighting Type
+
+                    <select
+                        id="lightingType"
+                        name="lightingType">
+
+                        <option>Soft Natural Light</option>
+                        <option>Hard Sunlight</option>
+                        <option>Golden Hour</option>
+                        <option>Blue Hour</option>
+                        <option>Overcast</option>
+                        <option>Studio Softbox</option>
+                        <option>Rembrandt Lighting</option>
+                        <option>Split Lighting</option>
+                        <option>Butterfly Lighting</option>
+                        <option>Loop Lighting</option>
+                        <option>Rim Light</option>
+                        <option>Back Light</option>
+                        <option>Volumetric Light</option>
+                        <option>Neon Light</option>
+                        <option>Cinematic Lighting</option>
+
+                    </select>
+
+                </label>
+
+
+
+                <div class="twoColumn">
+
+                    <label>
+
+                        Intensity
+
+                        <select
+                            id="lightIntensity"
+                            name="lightIntensity">
+
+                            <option>Very Soft</option>
+                            <option>Soft</option>
+                            <option selected>Medium</option>
+                            <option>Strong</option>
+                            <option>Very Strong</option>
+
+                        </select>
+
+                    </label>
+
+
+
+                    <label>
+
+                        Direction
+
+                        <select
+                            id="lightDirection"
+                            name="lightDirection">
+
+                            <option>Front</option>
+                            <option>45° Left</option>
+                            <option>45° Right</option>
+                            <option>Side</option>
+                            <option>Back</option>
+                            <option>Top</option>
+                            <option>Bottom</option>
+
+                        </select>
+
+                    </label>
+
+                </div>
+
+
+
+                <label>
+
+                    Lighting Description
+
+                    <textarea
+                        id="lightingDescription"
+                        name="lightingDescription"
+                        rows="4"></textarea>
+
+                </label>
+
+            </div>
+
+            <!-- ===================================================== -->
+            <!-- COMPOSITION -->
+            <!-- ===================================================== -->
+
+            <div class="card">
+
+                <h2>
+                    🖼 Composition
+                </h2>
+
+                <label>
+
+                    Composition
+
+                    <select
+                        id="composition"
+                        name="composition">
+
+                        <option>Rule of Thirds</option>
+                        <option>Centered Composition</option>
+                        <option>Leading Lines</option>
+                        <option>Symmetry</option>
+                        <option>Golden Ratio</option>
+                        <option>Frame Within Frame</option>
+                        <option>Negative Space</option>
+                        <option>Diagonal Composition</option>
+                        <option>Foreground Emphasis</option>
+                        <option>Background Emphasis</option>
+                        <option>Layered Composition</option>
+
+                    </select>
+
+                </label>
+
+
+
+                <label>
+
+                    Color Grade
+
+                    <select
+                        id="colorGrade"
+                        name="colorGrade">
+
+                        <option>Natural</option>
+                        <option>Warm</option>
+                        <option>Cool</option>
+                        <option>Teal & Orange</option>
+                        <option>Vintage Film</option>
+                        <option>Cyberpunk</option>
+                        <option>Noir</option>
+                        <option>Hollywood Blockbuster</option>
+                        <option>Netflix Style</option>
+                        <option>Kodak Film</option>
+
+                    </select>
+
+                </label>
+
+            </div>
+
+
+
+
+            <!-- ===================================================== -->
+            <!-- STYLE -->
+            <!-- ===================================================== -->
+
+            <div class="card">
+
+                <h2>
+                    🎨 Style
+                </h2>
+
+                <div class="checkGrid">
+
+                    <label><input type="checkbox" class="styleCheck" name="style" value="Cinematic">Cinematic</label>
+
+                    <label><input type="checkbox" class="styleCheck" name="style" value="Photorealistic">Photorealistic</label>
+
+                    <label><input type="checkbox" class="styleCheck" name="style" value="Hyper Realistic">Hyper Realistic</label>
+
+                    <label><input type="checkbox" class="styleCheck" name="style" value="Documentary">Documentary</label>
+
+                    <label><input type="checkbox" class="styleCheck" name="style" value="Commercial">Commercial</label>
+
+                    <label><input type="checkbox" class="styleCheck" name="style" value="Luxury">Luxury</label>
+
+                    <label><input type="checkbox" class="styleCheck" name="style" value="Minimal">Minimal</label>
+
+                    <label><input type="checkbox" class="styleCheck" name="style" value="Netflix">Netflix</label>
+
+                    <label><input type="checkbox" class="styleCheck" name="style" value="Hollywood">Hollywood</label>
+
+                    <label><input type="checkbox" class="styleCheck" name="style" value="Anime">Anime</label>
+
+                    <label><input type="checkbox" class="styleCheck" name="style" value="Pixar">Pixar</label>
+
+                    <label><input type="checkbox" class="styleCheck" name="style" value="Disney">Disney</label>
+
+                    <label><input type="checkbox" class="styleCheck" name="style" value="Studio Ghibli">Studio Ghibli</label>
+
+                    <label><input type="checkbox" class="styleCheck" name="style" value="Dark Fantasy">Dark Fantasy</label>
+
+                    <label><input type="checkbox" class="styleCheck" name="style" value="Sci-Fi">Sci-Fi</label>
+
+                    <label><input type="checkbox" class="styleCheck" name="style" value="Steampunk">Steampunk</label>
+
+                </div>
+
+            </div>
+
+
+
+
+            <!-- ===================================================== -->
+            <!-- MOOD -->
+            <!-- ===================================================== -->
+
+            <div class="card">
+
+                <h2>
+                    😊 Mood
+                </h2>
+
+                <div class="checkGrid">
+
+                    <label><input type="checkbox" class="moodCheck" name="mood" value="Epic">Epic</label>
+
+                    <label><input type="checkbox" class="moodCheck" name="mood" value="Dreamy">Dreamy</label>
+
+                    <label><input type="checkbox" class="moodCheck" name="mood" value="Peaceful">Peaceful</label>
+
+                    <label><input type="checkbox" class="moodCheck" name="mood" value="Luxury">Luxury</label>
+
+                    <label><input type="checkbox" class="moodCheck" name="mood" value="Elegant">Elegant</label>
+
+                    <label><input type="checkbox" class="moodCheck" name="mood" value="Mysterious">Mysterious</label>
+
+                    <label><input type="checkbox" class="moodCheck" name="mood" value="Dark">Dark</label>
+
+                    <label><input type="checkbox" class="moodCheck" name="mood" value="Emotional">Emotional</label>
+
+                    <label><input type="checkbox" class="moodCheck" name="mood" value="Hopeful">Hopeful</label>
+
+                    <label><input type="checkbox" class="moodCheck" name="mood" value="Romantic">Romantic</label>
+
+                    <label><input type="checkbox" class="moodCheck" name="mood" value="Energetic">Energetic</label>
+
+                    <label><input type="checkbox" class="moodCheck" name="mood" value="Funny">Funny</label>
+
+                    <label><input type="checkbox" class="moodCheck" name="mood" value="Inspirational">Inspirational</label>
+
+                    <label><input type="checkbox" class="moodCheck" name="mood" value="Tense">Tense</label>
+
+                    <label><input type="checkbox" class="moodCheck" name="mood" value="Warm">Warm</label>
+
+                    <label><input type="checkbox" class="moodCheck" name="mood" value="Cold">Cold</label>
+
+                </div>
+
+            </div>
+
+            <!-- ===================================================== -->
+            <!-- QUALITY -->
+            <!-- ===================================================== -->
+
+            <div class="card">
+
+                <h2>
+                    ⭐ Quality
+                </h2>
+
+                <div class="checkGrid">
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            class="qualityCheck"
+                            name="quality"
+                            value="Ultra Detailed">
+                        Ultra Detailed
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            class="qualityCheck"
+                            name="quality"
+                            value="Best Quality">
+                        Best Quality
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            class="qualityCheck"
+                            name="quality"
+                            value="HDR">
+                        HDR
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            class="qualityCheck"
+                            name="quality"
+                            value="8K">
+                        8K
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            class="qualityCheck"
+                            name="quality"
+                            value="High Detail">
+                        High Detail
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            class="qualityCheck"
+                            name="quality"
+                            value="Photorealistic Skin">
+                        Photorealistic Skin
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            class="qualityCheck"
+                            name="quality"
+                            value="Sharp Focus">
+                        Sharp Focus
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            class="qualityCheck"
+                            name="quality"
+                            value="Professional Color">
+                        Professional Color
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            class="qualityCheck"
+                            name="quality"
+                            value="Film Grain">
+                        Film Grain
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            class="qualityCheck"
+                            name="quality"
+                            value="High Dynamic Range">
+                        High Dynamic Range
+                    </label>
+
+                </div>
+
+            </div>
+
+
+
+
+            <!-- ===================================================== -->
+            <!-- AUDIO -->
+            <!-- ===================================================== -->
+
+            <div class="card">
+
+                <h2>
+                    🎵 Audio
+                </h2>
+
+                <label>
+
+                    Background Music
+
+                    <textarea
+                        id="music"
+                        name="music"
+                        rows="4"
+                        placeholder="Epic orchestral music with emotional piano..."></textarea>
+
+                </label>
+
+
+
+                <label>
+
+                    Sound Effects
+
+                    <textarea
+                        id="sfx"
+                        name="sfx"
+                        rows="4"
+                        placeholder="Birds chirping, footsteps, wind, crowd ambience..."></textarea>
+
+                </label>
+
+            </div>
+
+
+
+
+            <!-- ===================================================== -->
+            <!-- MAIN PROMPT -->
+            <!-- ===================================================== -->
+
+            <div class="card">
+
+                <h2>
+                    ✍ Main Prompt
+                </h2>
+
+                <textarea
+
+                    id="mainPrompt"
+
+                    name="mainPrompt"
+
+                    rows="10"
+
+                    placeholder="Describe the entire scene in natural English..."></textarea>
+
+            </div>
+
+
+
+
+            <!-- ===================================================== -->
+            <!-- NEGATIVE PROMPT -->
+            <!-- ===================================================== -->
+
+            <div class="card">
+
+                <h2>
+                    🚫 Negative Prompt
+                </h2>
+
+                <textarea
+
+                    id="negativePrompt"
+
+                    name="negativePrompt"
+
+                    rows="8"
+
+                    placeholder="low quality, blurry, watermark, bad anatomy, text...">
+
+low quality,
+blurry,
+bad anatomy,
+watermark,
+text,
+low resolution,
+oversaturated,
+deformed hands,
+duplicate,
+cropped,
+poor lighting
+
+                </textarea>
+
+            </div>
+
+
+
+
+
+        </section>
+
+
+
+
+        <!-- ===================================================== -->
+        <!-- RIGHT PANEL -->
+        <!-- ===================================================== -->
+
+        <section class="rightPanel">
+
+            <div class="card previewCard">
+
+                <h2>
+                    📄 Prompt Preview
+                </h2>
+
+                <textarea
+
+                    id="promptOutput"
+
+                    readonly
+
+                    rows="45"
+
+                    placeholder="Your AI prompt will appear here..."></textarea>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+
+    <!-- ===================================================== -->
+    <!-- FOOTER -->
+    <!-- ===================================================== -->
+
+    <footer>
+
+        <button id="generatePrompt">
+
+            🚀 Generate Prompt
+
+        </button>
+
+
+
+        <button id="copyPrompt">
+
+            📋 Copy Prompt
+
+        </button>
+
+
+
+        <button id="saveJSON">
+
+            💾 Save JSON
+
+        </button>
+
+
+
+        <button id="loadJSON">
+
+            📂 Load JSON
+
+        </button>
+
+
+
+        <button id="clearForm">
+
+            🗑 Clear
+
+        </button>
+
+    </footer>
+
+
+
+
+    <!-- ===================================================== -->
+    <!-- HIDDEN -->
+    <!-- ===================================================== -->
+
+    <input
+
+        type="file"
+
+        id="jsonFile"
+
+        accept=".json"
+
+        style="display:none;">
+
+
+</div>
+
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
