@@ -1,22 +1,18 @@
 /*==========================================================
  Universal AI Prompt Builder Pro
- Version 2.0
- app.js
+ Version 2.1
+ app.js COMPLETE
 ==========================================================*/
 
 "use strict";
 
-/*==========================================================
- DOM Ready
-==========================================================*/
 
-document.addEventListener("DOMContentLoaded", initialize);
+document.addEventListener(
+    "DOMContentLoaded",
+    initialize
+);
 
 
-
-/*==========================================================
- Initialize
-==========================================================*/
 
 function initialize(){
 
@@ -30,313 +26,509 @@ function initialize(){
 
 
 
-/*==========================================================
- Event Binding
-==========================================================*/
-
 function bindEvents(){
 
     document
-        .getElementById("generatePrompt")
-        .addEventListener("click", generatePrompt);
+    .getElementById("generatePrompt")
+    .addEventListener(
+        "click",
+        generatePrompt
+    );
+
 
     document
-        .getElementById("copyPrompt")
-        .addEventListener("click", copyPrompt);
+    .getElementById("copyPrompt")
+    .addEventListener(
+        "click",
+        copyPrompt
+    );
+
 
     document
-        .getElementById("saveJSON")
-        .addEventListener("click", saveJSON);
+    .getElementById("saveJSON")
+    .addEventListener(
+        "click",
+        saveJSON
+    );
+
 
     document
-        .getElementById("loadJSON")
-        .addEventListener("click", openJSON);
+    .getElementById("loadJSON")
+    .addEventListener(
+        "click",
+        openJSON
+    );
+
 
     document
-        .getElementById("clearForm")
-        .addEventListener("click", clearForm);
+    .getElementById("clearForm")
+    .addEventListener(
+        "click",
+        clearForm
+    );
+
 
     document
-        .getElementById("jsonFile")
-        .addEventListener("change", loadJSON);
+    .getElementById("jsonFile")
+    .addEventListener(
+        "change",
+        loadJSON
+    );
 
 }
 
 
-
-/*==========================================================
- Auto Preview
-==========================================================*/
 
 function enableAutoPreview(){
 
     document
+    .querySelectorAll(
+        "input,textarea,select"
+    )
+    .forEach(
+        element=>{
 
-    .querySelectorAll("input, textarea, select")
+            element.addEventListener(
+                "input",
+                generatePrompt
+            );
 
-    .forEach(element=>{
+            element.addEventListener(
+                "change",
+                generatePrompt
+            );
 
-        element.addEventListener("input",generatePrompt);
-
-        element.addEventListener("change",generatePrompt);
-
-    });
+        }
+    );
 
 }
 
 
 
-/*==========================================================
- Generate Prompt
-==========================================================*/
+
 
 function generatePrompt(){
 
     const data = collectData();
 
-    const prompt = buildPrompt(data);
+    const result = buildPrompt(data);
+
 
     document
-
-        .getElementById("promptOutput")
-
-        .value = prompt;
+    .getElementById("promptOutput")
+    .value = result;
 
 }
 
 
 
-/*==========================================================
- Collect Data
-==========================================================*/
+
+
+
 
 function collectData(){
 
-    return{
+return {
 
-        project:getProject(),
+project:getProject(),
 
-        scene:getScene(),
+scene:getScene(),
 
-        subject:getSubject(),
+subject:getSubject(),
 
-        camera:getCamera(),
+camera:getCamera(),
 
-        lighting:getLighting(),
+lighting:getLighting(),
 
-        composition:getComposition(),
+composition:getComposition(),
 
-        style:getChecked("styleCheck"),
+style:getChecked("styleCheck"),
 
-        mood:getChecked("moodCheck"),
+mood:getChecked("moodCheck"),
 
-        quality:getChecked("qualityCheck"),
+quality:getChecked("qualityCheck"),
 
-        audio:getAudio(),
+audio:getAudio(),
 
-        prompt:value("mainPrompt"),
+mainPrompt:value("mainPrompt"),
 
-        negative:value("negativePrompt")
+negativePrompt:value("negativePrompt")
 
-    };
+};
 
 }
 
 
 
-/*==========================================================
- Value
-==========================================================*/
+
+
+
+
+function buildPrompt(data){
+
+
+let prompt=`
+
+
+MASTER AI VIDEO PROMPT
+
+
+PROJECT
+${data.project.name}
+
+
+AI ENGINE
+${data.project.ai}
+
+
+FORMAT
+Aspect Ratio : ${data.project.aspect}
+FPS : ${data.project.fps}
+Resolution : ${data.project.resolution}
+Duration : ${data.project.duration}s
+
+
+
+SCENE
+
+Scene Number :
+${data.scene.number}
+
+Location :
+${data.scene.location}
+
+Location Description :
+${data.scene.locationDescription}
+
+Time :
+${data.scene.time}
+
+Weather :
+${data.scene.weather}
+
+
+
+SUBJECT
+
+Gender :
+${data.subject.gender}
+
+Age :
+${data.subject.age}
+
+Nationality :
+${data.subject.nationality}
+
+Job :
+${data.subject.job}
+
+Appearance :
+${data.subject.appearance}
+
+Outfit :
+${data.subject.outfit}
+
+Hair :
+${data.subject.hair}
+
+Accessory :
+${data.subject.accessory}
+
+Shoes :
+${data.subject.shoes}
+
+Action :
+${data.subject.action}
+
+Expression :
+${data.subject.expression}
+
+
+
+CAMERA
+
+Shot :
+${data.camera.shot}
+
+Angle :
+${data.camera.angle}
+
+Movement :
+${data.camera.movement}
+
+Lens :
+${data.camera.lens}
+
+Focus :
+${data.camera.focus}
+
+
+
+LIGHTING
+
+Type :
+${data.lighting.type}
+
+Intensity :
+${data.lighting.intensity}
+
+Direction :
+${data.lighting.direction}
+
+Description :
+${data.lighting.description}
+
+
+
+COMPOSITION
+
+${data.composition.composition}
+
+Color Grade :
+${data.composition.colorGrade}
+
+
+
+STYLE
+
+${data.style.join(", ")}
+
+
+
+MOOD
+
+${data.mood.join(", ")}
+
+
+
+QUALITY
+
+${data.quality.join(", ")}
+
+
+
+AUDIO
+
+Music :
+${data.audio.music}
+
+Sound Effects :
+${data.audio.sfx}
+
+
+
+MAIN CREATIVE IDEA
+
+${data.mainPrompt}
+
+
+
+NEGATIVE PROMPT
+
+${data.negativePrompt}
+
+
+`;
+
+return prompt.trim();
+
+}
+
+
+
+
+
+
 
 function value(id){
 
-    const element=document.getElementById(id);
+const el=document.getElementById(id);
 
-    if(!element)return"";
-
-    return element.value.trim();
+return el ? el.value.trim() : "";
 
 }
 
 
 
-/*==========================================================
- Checked Values
-==========================================================*/
+
+
 
 function getChecked(className){
 
-    return [...document.querySelectorAll("." + className + ":checked")]
+return [
 
-    .map(item=>item.value);
+...document.querySelectorAll(
+"." + className + ":checked"
+)
+
+]
+
+.map(
+item=>item.value
+);
 
 }
 
-/*==========================================================
- Project
-==========================================================*/
+
+
+
+
 
 function getProject(){
 
-    return{
+return{
 
-        name:value("projectName"),
+name:value("projectName"),
 
-        ai:value("aiType"),
+ai:value("aiType"),
 
-        aspect:value("aspectRatio"),
+aspect:value("aspectRatio"),
 
-        fps:value("fps"),
+fps:value("fps"),
 
-        resolution:value("resolution"),
+resolution:value("resolution"),
 
-        duration:value("videoDuration")
+duration:value("videoDuration")
 
-    };
+};
 
 }
 
 
 
-/*==========================================================
- Scene
-==========================================================*/
+
+
 
 function getScene(){
 
-    return{
+return{
 
-        number:value("sceneNumber"),
+number:value("sceneNumber"),
 
-        duration:value("sceneDuration"),
+duration:value("sceneDuration"),
 
-        location:value("location"),
+location:value("location"),
 
-        locationDescription:value("locationDescription"),
+locationDescription:value("locationDescription"),
 
-        time:value("time"),
+time:value("time"),
 
-        weather:value("weather")
+weather:value("weather")
 
-    };
+};
 
 }
 
 
 
-/*==========================================================
- Subject
-==========================================================*/
+
+
 
 function getSubject(){
 
-    return{
+return{
 
-        gender:value("gender"),
+gender:value("gender"),
 
-        age:value("age"),
+age:value("age"),
 
-        nationality:value("nationality"),
+nationality:value("nationality"),
 
-        job:value("job"),
+job:value("job"),
 
-        appearance:value("appearance"),
+appearance:value("appearance"),
 
-        outfit:value("outfit"),
+outfit:value("outfit"),
 
-        hair:value("hairStyle"),
+hair:value("hairStyle"),
 
-        accessory:value("accessory"),
+accessory:value("accessory"),
 
-        shoes:value("shoes"),
+shoes:value("shoes"),
 
-        action:value("action"),
+action:value("action"),
 
-        expression:value("expression")
+expression:value("expression")
 
-    };
+};
 
 }
 
 
 
-/*==========================================================
- Camera
-==========================================================*/
+
+
 
 function getCamera(){
 
-    return{
+return{
 
-        shot:value("cameraShot"),
+shot:value("cameraShot"),
 
-        angle:value("cameraAngle"),
+angle:value("cameraAngle"),
 
-        movement:value("cameraMovement"),
+movement:value("cameraMovement"),
 
-        lens:value("lens"),
+lens:value("lens"),
 
-        focus:value("focus")
+focus:value("focus")
 
-    };
+};
 
 }
 
 
 
-/*==========================================================
- Lighting
-==========================================================*/
+
+
 
 function getLighting(){
 
-    return{
+return{
 
-        type:value("lightingType"),
+type:value("lightingType"),
 
-        intensity:value("lightIntensity"),
+intensity:value("lightIntensity"),
 
-        direction:value("lightDirection"),
+direction:value("lightDirection"),
 
-        description:value("lightingDescription")
+description:value("lightingDescription")
 
-    };
+};
 
 }
 
 
 
-/*==========================================================
- Composition
-==========================================================*/
+
+
 
 function getComposition(){
 
-    return{
+return{
 
-        composition:value("composition"),
+composition:value("composition"),
 
-        colorGrade:value("colorGrade")
+colorGrade:value("colorGrade")
 
-    };
+};
 
 }
 
 
 
-/*==========================================================
- Audio
-==========================================================*/
+
+
 
 function getAudio(){
 
-    return{
+return{
 
-        music:value("music"),
+music:value("music"),
 
-        sfx:value("sfx")
+sfx:value("sfx")
 
-    };
+};
 
 }
 
@@ -348,6 +540,24 @@ function getAudio(){
 
 
 
+/* COPY */
+
+function copyPrompt(){
+
+const text =
+document.getElementById(
+"promptOutput"
+).value;
+
+
+navigator.clipboard.writeText(text);
+
+
+alert(
+"Prompt copied!"
+);
+
+}
 
 
 
@@ -355,3 +565,189 @@ function getAudio(){
 
 
 
+/* SAVE JSON */
+
+function saveJSON(){
+
+
+const data=collectData();
+
+
+const blob=new Blob(
+
+[
+JSON.stringify(
+data,
+null,
+2
+)
+],
+
+{
+type:"application/json"
+}
+
+);
+
+
+
+const url=
+URL.createObjectURL(blob);
+
+
+
+const a=document.createElement("a");
+
+
+a.href=url;
+
+
+a.download=
+"AI_Prompt_Project.json";
+
+
+a.click();
+
+
+URL.revokeObjectURL(url);
+
+
+}
+
+
+
+
+
+
+
+function openJSON(){
+
+document
+.getElementById("jsonFile")
+.click();
+
+}
+
+
+
+
+
+
+
+function loadJSON(event){
+
+
+const file=
+event.target.files[0];
+
+
+if(!file)return;
+
+
+const reader=
+new FileReader();
+
+
+
+reader.onload=function(e){
+
+
+const data=
+JSON.parse(
+e.target.result
+);
+
+
+
+restoreData(data);
+
+
+
+generatePrompt();
+
+
+};
+
+
+
+reader.readAsText(file);
+
+
+}
+
+
+
+
+
+
+
+function restoreData(data){
+
+
+Object.keys(data)
+.forEach(section=>{
+
+
+if(
+typeof data[section]
+!=="object"
+) return;
+
+
+
+Object.keys(data[section])
+.forEach(key=>{
+
+
+const el=
+document.getElementById(key);
+
+
+
+if(el)
+el.value=
+data[section][key];
+
+
+});
+
+
+});
+
+}
+
+
+
+
+
+
+
+
+function clearForm(){
+
+
+document
+.querySelectorAll(
+"input,textarea"
+)
+.forEach(
+el=>{
+
+
+if(
+el.type==="checkbox"
+)
+el.checked=false;
+
+
+else
+el.value="";
+
+
+});
+
+
+generatePrompt();
+
+
+}
