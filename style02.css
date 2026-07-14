@@ -1,0 +1,975 @@
+/* ==========================================================
+   Universal AI Prompt Builder Pro
+   Version 2.0
+   style.css
+========================================================== */
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:
+    "Pretendard",
+    "Malgun Gothic",
+    Arial,
+    sans-serif;
+
+    background:#171717;
+
+    color:#f2f2f2;
+
+    overflow-x:hidden;
+
+}
+
+
+/* ==========================================================
+   ROOT COLOR
+========================================================== */
+
+:root{
+
+    --bg:#171717;
+
+    --header:#101010;
+
+    --panel:#222;
+
+    --card:#2d2d2d;
+
+    --border:#404040;
+
+    --accent:#4EA8FF;
+
+    --accentHover:#7BC5FF;
+
+    --text:#F2F2F2;
+
+    --subText:#B9B9B9;
+
+    --success:#42d392;
+
+    --danger:#ff5b5b;
+
+}
+
+
+/* ==========================================================
+   LAYOUT
+========================================================== */
+
+.container{
+
+    width:100%;
+
+    min-height:100vh;
+
+}
+
+.mainLayout{
+
+    display:flex;
+
+    gap:18px;
+
+    padding:20px;
+
+    align-items:flex-start;
+
+}
+
+.leftPanel{
+
+    width:430px;
+
+}
+
+.rightPanel{
+
+    flex:1;
+
+}
+
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:999;
+
+    background:var(--header);
+
+    border-bottom:1px solid var(--border);
+
+    padding:24px 20px;
+
+}
+
+.logoArea h1{
+
+    font-size:32px;
+
+    font-weight:700;
+
+    margin-bottom:8px;
+
+}
+
+.logoArea p{
+
+    color:var(--subText);
+
+    font-size:15px;
+
+}
+
+
+/* ==========================================================
+   CARD
+========================================================== */
+
+.card{
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:6px;
+
+    padding:16px;
+
+    margin-bottom:16px;
+
+    transition:.25s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 14px 30px rgba(0,0,0,.28);
+
+}
+
+.card h2{
+
+    color:var(--accent);
+
+    margin-bottom:16px;
+
+    font-size:21px;
+
+}
+
+
+/* ==========================================================
+   GRID
+========================================================== */
+
+.twoColumn{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:14px;
+
+}
+
+.checkGrid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(170px,1fr));
+
+    gap:10px;
+
+}
+
+/* ==========================================================
+   LABEL
+========================================================== */
+
+label{
+
+    display:flex;
+
+    flex-direction:column;
+
+    margin-bottom:18px;
+
+    color:var(--text);
+
+    font-size:14px;
+
+    font-weight:500;
+
+}
+
+
+/* ==========================================================
+   INPUT
+========================================================== */
+
+input[type="text"],
+input[type="number"]{
+
+    width:100%;
+
+    margin-top:8px;
+
+    padding:12px 14px;
+
+    background:#1d1d1d;
+
+    color:var(--text);
+
+    border:1px solid #474747;
+
+    border-radius:6px;
+
+    font-size:15px;
+
+    transition:.25s;
+
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus{
+
+    outline:none;
+
+    border-color:var(--accent);
+
+    box-shadow:0 0 10px rgba(78,168,255,.35);
+
+}
+
+
+/* ==========================================================
+   SELECT
+========================================================== */
+
+select{
+
+    width:100%;
+
+    margin-top:8px;
+
+    padding:10px 12px;
+
+    background:#1d1d1d;
+
+    color:white;
+
+    border:1px solid #474747;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    transition:.25s;
+
+}
+
+select:hover{
+
+    border-color:var(--accent);
+
+}
+
+select:focus{
+
+    outline:none;
+
+    border-color:var(--accent);
+
+    box-shadow:0 0 10px rgba(78,168,255,.35);
+
+}
+
+
+/* ==========================================================
+   TEXTAREA
+========================================================== */
+
+textarea{
+
+    width:100%;
+
+    margin-top:8px;
+
+    padding:10px 12px;
+
+    resize:vertical;
+
+    min-height:90px;
+
+    background:#1d1d1d;
+
+    color:white;
+
+    border:1px solid #474747;
+
+    border-radius:6px;
+
+    font-size:15px;
+
+    line-height:1.6;
+
+    transition:.25s;
+
+}
+
+textarea:focus{
+
+    outline:none;
+
+    border-color:var(--accent);
+
+    box-shadow:0 0 10px rgba(78,168,255,.35);
+
+}
+
+
+/* ==========================================================
+   PLACEHOLDER
+========================================================== */
+
+input::placeholder,
+textarea::placeholder{
+
+    color:#8d8d8d;
+
+}
+
+
+/* ==========================================================
+   CHECKBOX GRID
+========================================================== */
+
+.checkGrid label{
+
+    display:flex;
+
+    flex-direction:row;
+
+    align-items:center;
+
+    gap:18px;
+
+    padding:10px;
+
+    margin:0;
+
+    background:#252525;
+
+    border:1px solid #404040;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    user-select:none;
+
+}
+
+.checkGrid label:hover{
+
+    border-color:var(--accent);
+
+    background:#303947;
+
+}
+
+
+/* ==========================================================
+   CHECKBOX
+========================================================== */
+
+input[type="checkbox"]{
+
+    width:18px;
+
+    height:18px;
+
+    accent-color:var(--accent);
+
+    cursor:pointer;
+
+    flex-shrink:0;
+
+}
+
+
+/* ==========================================================
+   READ ONLY
+========================================================== */
+
+textarea[readonly]{
+
+    background:#151515;
+
+    color:#ff69c8;
+
+    font-family:
+
+    Consolas,
+
+    "Courier New",
+
+    monospace;
+
+}
+
+/* ==========================================================
+   LABEL
+========================================================== */
+
+label{
+
+    display:flex;
+
+    flex-direction:column;
+
+    margin-bottom:16px;
+
+    color:var(--text);
+
+    font-size:14px;
+
+    font-weight:500;
+
+}
+
+
+/* ==========================================================
+   INPUT
+========================================================== */
+
+input[type="text"],
+input[type="number"]{
+
+    width:100%;
+
+    margin-top:8px;
+
+    padding:10px 12px;
+
+    background:#1d1d1d;
+
+    color:var(--text);
+
+    border:1px solid #474747;
+
+    border-radius:6px;
+
+    font-size:15px;
+
+    transition:.25s;
+
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus{
+
+    outline:none;
+
+    border-color:var(--accent);
+
+    box-shadow:0 0 10px rgba(78,168,255,.35);
+
+}
+
+
+/* ==========================================================
+   SELECT
+========================================================== */
+
+select{
+
+    width:100%;
+
+    margin-top:8px;
+
+    padding:10px 12px;
+
+    background:#1d1d1d;
+
+    color:white;
+
+    border:1px solid #474747;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    transition:.25s;
+
+}
+
+select:hover{
+
+    border-color:var(--accent);
+
+}
+
+select:focus{
+
+    outline:none;
+
+    border-color:var(--accent);
+
+    box-shadow:0 0 10px rgba(78,168,255,.35);
+
+}
+
+
+/* ==========================================================
+   TEXTAREA
+========================================================== */
+
+textarea{
+
+    width:100%;
+
+    margin-top:8px;
+
+    padding:10px 12px;
+
+    resize:vertical;
+
+    min-height:90px;
+
+    background:#1d1d1d;
+
+    color:white;
+
+    border:1px solid #474747;
+
+    border-radius:6px;
+
+    font-size:15px;
+
+    line-height:1.6;
+
+    transition:.25s;
+
+}
+
+textarea:focus{
+
+    outline:none;
+
+    border-color:var(--accent);
+
+    box-shadow:0 0 10px rgba(78,168,255,.35);
+
+}
+
+
+/* ==========================================================
+   PLACEHOLDER
+========================================================== */
+
+input::placeholder,
+textarea::placeholder{
+
+    color:#8d8d8d;
+
+}
+
+
+/* ==========================================================
+   CHECKBOX GRID
+========================================================== */
+
+.checkGrid label{
+
+    display:flex;
+
+    flex-direction:row;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:10px;
+
+    margin:0;
+
+    background:#252525;
+
+    border:1px solid #404040;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    user-select:none;
+
+}
+
+.checkGrid label:hover{
+
+    border-color:var(--accent);
+
+    background:#303947;
+
+}
+
+
+/* ==========================================================
+   CHECKBOX
+========================================================== */
+
+input[type="checkbox"]{
+
+    width:18px;
+
+    height:18px;
+
+    accent-color:var(--accent);
+
+    cursor:pointer;
+
+    flex-shrink:0;
+
+}
+
+
+/* ==========================================================
+   READ ONLY
+========================================================== */
+
+textarea[readonly]{
+
+    background:#151515;
+
+    color:#ff53d4;
+
+    font-family:
+
+    Consolas,
+
+    "Courier New",
+
+    monospace;
+
+}
+
+/* ==========================================================
+   PROMPT PREVIEW
+========================================================== */
+
+.previewCard{
+
+    position:sticky;
+
+    top:110px;
+
+}
+
+#promptOutput{
+
+    min-height:950px;
+
+    white-space:pre-wrap;
+
+    word-break:break-word;
+
+    overflow:auto;
+
+}
+
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+footer{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:16px;
+
+    padding:24px;
+
+    background:#101010;
+
+    border-top:1px solid var(--border);
+
+}
+
+
+/* ==========================================================
+   BUTTON
+========================================================== */
+
+button{
+
+    min-width:180px;
+
+    padding:14px 20px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:var(--accent);
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:
+        background .25s,
+        transform .18s,
+        box-shadow .25s;
+
+}
+
+button:hover{
+
+    background:var(--accentHover);
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 24px rgba(78,168,255,.25);
+
+}
+
+button:active{
+
+    transform:scale(.97);
+
+}
+
+
+/* ==========================================================
+   FILE INPUT
+========================================================== */
+
+#jsonFile{
+
+    display:none;
+
+}
+
+
+/* ==========================================================
+   SCROLL BAR
+========================================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+    height:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#181818;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#4a4a4a;
+
+    border-radius:30px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#696969;
+
+}
+
+
+/* ==========================================================
+   TEXT SELECTION
+========================================================== */
+
+::selection{
+
+    background:rgba(78,168,255,.35);
+
+    color:#ffffff;
+
+}
+
+
+/* ==========================================================
+   TRANSITION
+========================================================== */
+
+input,
+textarea,
+select,
+button,
+.card{
+
+    transition:.25s;
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width:1400px){
+
+    .mainLayout{
+
+        flex-direction:column;
+
+    }
+
+    .leftPanel{
+
+        width:100%;
+
+    }
+
+    .rightPanel{
+
+        width:100%;
+
+    }
+
+    .previewCard{
+
+        position:relative;
+
+        top:0;
+
+    }
+
+    #promptOutput{
+
+        min-height:500px;
+
+    }
+
+}
+
+
+@media (max-width:900px){
+
+    .twoColumn{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .checkGrid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .header{
+
+        padding:20px;
+
+    }
+
+    .logoArea h1{
+
+        font-size:26px;
+
+    }
+
+}
+
+
+@media (max-width:600px){
+
+    .mainLayout{
+
+        padding:16px;
+
+    }
+
+    .card{
+
+        padding:18px;
+
+    }
+
+    footer{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    button{
+
+        width:100%;
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
